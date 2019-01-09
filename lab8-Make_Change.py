@@ -1,12 +1,9 @@
 #lab8-Make_Change.py
 
-amount = input("How much much money do you have, lets make some change? example $4.25  >> $")
+amount = round(float(input("How much much money do you have, lets make some change? example $4.25  >> $"))*100)
 print(amount)
-amount = float(amount)
 
-amount = amount*100.00
-# have to round the number up, otherwise 115 became 114.99999
-amount = round(amount)
+
 amount = int(amount)
 print(amount)
 quarters = amount//25
