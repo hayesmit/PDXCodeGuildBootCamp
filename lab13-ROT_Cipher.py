@@ -9,7 +9,9 @@ my_indexes = []
 encript_decript = input("do you want to encrypt or decrypt something? >>  ")
 new_cipher = []
 deciphered = []
-
+#look at unikas examples, you can look up a letter and translate it in one move instead of puting it into a list
+#that you have to call again later, you can add the cypher amount then modulous 26 to loop back to the start of the
+#alphabet.
 
 # finds all indexes of the word form a-z and makes the list of locations
 def find_indexes(word):
