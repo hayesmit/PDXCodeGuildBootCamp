@@ -1,4 +1,5 @@
 # lab27_Connect_Four.py
+#still need to make sure entry is valid, tie games,
 
 
 class Game:
