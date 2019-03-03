@@ -93,22 +93,21 @@ class Game:
             return
 
 
+def main():
+    new_game = Game()
+    new_game.representation()
+    game_on = 'continue'
+    turn = 1
+    while game_on == 'continue':
+        if turn % 2 == 0:
+            game_on = new_game.placement(int(input("What row would you like to place your chip in? >> ")), "|X|")
+            turn += 1
+            continue
+        if turn % 2 != 0:
+            game_on = new_game.placement(int(input("What row would you like to place your chip in? >> ")), "|O|")
+            turn += 1
 
 
-
-new_game = Game()
-new_game.representation()
-game_on = 'continue'
-turn = 1
-while game_on == 'continue':
-    if turn % 2 == 0:
-        game_on = new_game.placement(int(input("What row would you like to place your chip in? >> ")), "|X|")
-        turn += 1
-        continue
-    if turn % 2 != 0:
-        game_on = new_game.placement(int(input("What row would you like to place your chip in? >> ")), "|O|")
-        turn += 1
-
-
+main()
 
 

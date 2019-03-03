@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="items">
+<h1>Lets make and use a grocery list</h1>
+
+<form action="{%url 'grocery_list_app:new_item'%}" method="post">
+    {%csrf_token%}
+    <input type="text" name="description">
+    <input type="submit" value="Add Item">
+</form>
+<ul>
+    {%for item in grocery_list%}
+    <form action="{%url 'grocery_list_app:remove_item' item.id%}" method="post">
+        {%csrf_token%}
+        <li>{{item.item_description}}: added on {{item.date_added}}</li>
+    <input type="submit" value="item purchased">
+    </form>
+    {%endfor%}
+</ul>
+</div>
+<div class="items">
+<h1>Purchased items</h1>
+    {%csrf_token%}
+    <ul>
+    {%for item in purchased_items%}
+    <li>{{item.item_description}} was added {{item.date_added}} and was purchased  on {{item.date_purchased}}</li>
+
+    {%endfor%}
+        </ul>
+</div>
+</body>
+</html>

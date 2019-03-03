@@ -13,7 +13,8 @@ runningTotal = 0
 def pick_winner():
     for i in range(6):
         winner.append(random.choice(allNumbers))
-
+#def pick6():
+    #return(random.randint(1,99) for i in range(6))
 
 #crates as many tickets as you want to buy
 def create_tickets(numtickets):

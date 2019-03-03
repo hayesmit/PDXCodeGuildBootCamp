@@ -12,7 +12,7 @@ class Game:
             representation.append(self.board[i + 1])
             representation.append(self.board[i + 2])
             representation.append('\n')
-        print(''.join(representation))
+        return ''.join(representation)
 
     def __repr__(self):
         return str(self.board)

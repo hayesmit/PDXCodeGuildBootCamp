@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short urls</title>
+</head>
+<body>
+<h1>Lets shorten that url for you</h1>
+<form action="{% url 'lab02_url_shortner_app:add_url' %}" method="post">
+    {%csrf_token%}
+    <input type="text" name="long_url">
+    <input type="submit" value="Add url">
+</form>
+
+<ul>
+    {%for item in short_urls%}
+    <div>
+        {%csrf_token%}
+        <li><a href="{% url 'lab02_url_shortner_app:go_here' item.short_code%}">{{item.short_code}}</a> </li>
+    </div>
+    {%endfor%}
+</ul>
+
+</body>
+</html>
