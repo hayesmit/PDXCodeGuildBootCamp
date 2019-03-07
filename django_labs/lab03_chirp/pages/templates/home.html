@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }}</p>
+    <form action="{% url 'pages:add_post' %}" method="post">
+        {%csrf_token%}
+        <input type="text" name="body" maxlength="200">
+        <input type="submit" value="add post" class="button-primary">
+    </form>
+
+    <p><a href="{% url 'logout' %}">Log out</a></p>
+
+    {% for chirp in object_list %}
+    <div class="post">
+        {% if chirp.user_name_id == user.id%}
+        <p>{{chirp.body}} </p>
+        <p>Chirped on: {{chirp.date_of_origin}}<a href="{% url 'pages:edit_post' chirp.id%}">Edit</a> <a href="{% url 'pages:post_delete' chirp.id%}">Delete</a> </p>
+        {%endif%}
+    </div>
+    {%endfor%}
+    {% else %}
+        <p><a href="{% url 'signup' %}">Sign Up</a>    <a href="{% url 'login' %}">Log In </a></p>
+ {% for chirp in object_list %}
+<div class="post">
+    <p>{{chirp.user_name}}</p>
+    <p>{{chirp.body}}</p>
+    <p>{{chirp.date_updated}}</p>
+</div>
+{% endfor %}
+
+    {% endif %}
+
+{% endblock %}
